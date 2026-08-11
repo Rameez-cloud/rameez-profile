@@ -614,54 +614,84 @@ a {
 /* Certifications & Education */
 .cert-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--space-md);
-  align-items: start;
-}
-
-.cert-stack {
-  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-md);
 }
 
-.cert-card {
+.cert-item {
   padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
 }
 
-.cert-heading {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-accent);
+.cert-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
   margin-bottom: var(--space-sm);
 }
 
-.cert-list {
-  list-style: none;
-  display: grid;
-  gap: var(--space-sm);
-}
-
-.cert-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.cert-badge {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+.cert-shield {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
   background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.4);
+  border: 1px solid rgba(34, 197, 94, 0.35);
   color: var(--color-accent);
   display: grid;
   place-items: center;
 }
 
-.cert-badge svg {
-  width: 16px;
-  height: 16px;
+.cert-shield svg {
+  width: 26px;
+  height: 26px;
+}
+
+.cert-level {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.level-expert {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+}
+
+.level-associate {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.45);
+}
+
+.level-fundamental {
+  color: var(--color-accent);
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+}
+
+.cert-item .cert-name {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.cert-code {
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.cert-provider {
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
 }
 
 .cert-name {
@@ -673,6 +703,24 @@ a {
 .cert-detail {
   font-size: 0.82rem;
   color: var(--color-text-dim);
+}
+
+.cert-lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.cert-card {
+  padding: var(--space-md);
+}
+
+.cert-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
 }
 
 .edu-list,
@@ -847,6 +895,10 @@ a {
   }
 
   .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-lower {
     grid-template-columns: 1fr;
   }
 
